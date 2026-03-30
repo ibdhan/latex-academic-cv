@@ -1,0 +1,345 @@
+% ============================================================
+%  Academic CV Template — Based on Callie Hao (Georgia Tech) style
+%  Compile with: pdflatex cv_template.tex
+% ============================================================
+\documentclass[10pt, letterpaper]{article}
+
+% ---------- Packages ----------
+\usepackage[
+  top=0.75in, bottom=0.75in,
+  left=0.85in, right=0.85in
+]{geometry}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{microtype}
+\usepackage{parskip}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{fontenc}
+\usepackage{inputenc}
+\usepackage{ragged2e}
+\usepackage{multirow}
+\usepackage{etoolbox}
+
+% ---------- Hyperlink style ----------
+\hypersetup{
+  colorlinks = true,
+  urlcolor   = blue,
+  linkcolor  = blue
+}
+
+% ---------- Section title formatting ----------
+% Bold, all-caps, with a rule underneath
+\titleformat{\section}
+  {\large\bfseries\uppercase}
+  {}{0em}{}
+  [\vspace{-4pt}\rule{\linewidth}{0.8pt}\vspace{-4pt}]
+
+\titlespacing*{\section}{0pt}{10pt}{6pt}
+
+% ---------- List settings ----------
+\setlist[itemize]{
+  leftmargin = 1.5em,
+  topsep     = 2pt,
+  itemsep    = 1pt,
+  parsep     = 0pt
+}
+
+% ---------- No paragraph indent ----------
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+
+% ---------- Helper: two-column dated entry ----------
+% Usage: \entry{LEFT TEXT}{RIGHT (year/date)}
+\newcommand{\entry}[2]{%
+  \noindent
+  \begin{tabularx}{\linewidth}{@{}X r@{}}
+    #1 & #2
+  \end{tabularx}\vspace{2pt}
+}
+
+% ---------- Helper: award/honor entry with bold title ----------
+% Usage: \award{Year}{Award Name}{Venue/Notes}
+\newcommand{\award}[3]{%
+  \entry{#1 \quad #2 \textit{#3}}{}%
+}
+
+% ============================================================
+\begin{document}
+
+% ===================== HEADER ==============================
+\begin{center}
+  {\LARGE\bfseries Ibnu Cipta Ramadhan}\\[4pt]
+  Department of Electrical Engineering, Politeknik Elektronika Negeri Surabaya (PENS), Surabaya, 60111, Indonesia\\[2pt]
+  \small
+  E-mail: \href{mailto:ibnu.ramadhan@pens.ac.id}{ibnu.ramadhan@pens.ac.id}
+  \quad$\bullet$\quad
+  Homepage: \href{https://yourlab.university.edu/}{https://yourlab.university.edu/}
+\end{center}
+
+\vspace{2pt}
+\noindent\textit{Updated: \today}
+
+% ===================== RESEARCH AREA =======================
+\section{Research Area}
+
+\begin{itemize}
+  \item \textbf{Topic 1}: brief description, keywords
+  \item \textbf{Topic 2}: brief description, keywords
+  \item \textbf{Topic 3}: brief description, keywords
+\end{itemize}
+
+% ===================== PROFESSIONAL APPOINTMENTS ===========
+\section{Professional Appointments}
+
+\entry{
+  \textbf{2024.01 -- present} \quad
+  \textbf{Job Title}, \textit{University Name}, City, Country\\
+  \hspace*{1.6em} \textit{Optional endowed chair / early career name}\\
+  \hspace*{1.6em} Department, College
+}{}
+
+\entry{
+  \textbf{2021.01 -- 2023.12} \quad
+  \textbf{Previous Role}, \textit{Another University}, City, Country\\
+  \hspace*{1.6em} Department
+}{}
+
+\entry{
+  \textbf{2018.09 -- 2020.12} \quad
+  \textbf{Postdoctoral Researcher}, \textit{University Name}, City, Country\\
+  \hspace*{1.6em} Department
+}{}
+
+% ===================== EDUCATION ===========================
+\section{Education}
+
+\entry{
+  \textbf{Ph.D.} \quad Field of Study \hfill \textit{University, Country}
+}{2015 -- 2019}
+
+\entry{
+  \textbf{M.S.} \quad Field of Study \hfill \textit{University, Country}
+}{2013 -- 2015}
+
+\entry{
+  \textbf{B.S.} \quad Field of Study \hfill \textit{University, Country}
+}{2009 -- 2013}
+
+% ===================== HONORS AND AWARDS ===================
+\section{Honors and Awards}
+
+\noindent\textbf{International, National, and Best Paper Awards}
+\begin{itemize}
+  \item 2025 \quad Best Paper Award, \textit{Conference Name}
+  \item 2024 \quad NSF CAREER Award, National Science Foundation
+  \item 2023 \quad Best Paper Award, \textit{Conference Name}
+  \item 2022 \quad Best Paper Nomination, \textit{Conference Name}
+\end{itemize}
+
+\noindent\textbf{Institute and School Awards}
+\begin{itemize}
+  \item 2025 \quad Teaching Excellence Award, \textit{University Name}
+  \item 2024 \quad Teaching Recognition, \textit{University Name}
+\end{itemize}
+
+\noindent\textbf{Student Awards (under your supervision)}
+\begin{itemize}
+  \item 2025 \quad Fellowship Name, Student Name
+  \item 2024 \quad Award Name, Conference, Student Name
+\end{itemize}
+
+% ===================== RESEARCH FUNDING ====================
+\section{Research Funding}
+
+\noindent\textbf{My share total amount: \$X,XXX,XXX}
+
+\vspace{4pt}
+\noindent\textbf{As Principal Investigator (\$X.XM)}
+
+\vspace{4pt}
+\noindent
+\begin{tabularx}{\linewidth}{@{}l X@{}}
+  \textbf{Agency} & Title: \textit{Project Title Here} \\
+                  & Role: Single PI \\
+                  & Year: 2024 -- 2028. Total = \$000,000; My share = \$000,000.
+\end{tabularx}
+
+\vspace{6pt}
+\noindent
+\begin{tabularx}{\linewidth}{@{}l X@{}}
+  \textbf{Agency} & Title: \textit{Another Project Title} \\
+                  & Role: Single PI \\
+                  & Year: 2023 -- 2025. Total = \$000,000; My share = \$000,000.
+\end{tabularx}
+
+\vspace{8pt}
+\noindent\textbf{As Co-Principal Investigator (\$X.XM)}
+
+\vspace{4pt}
+\noindent
+\begin{tabularx}{\linewidth}{@{}l X@{}}
+  \textbf{Agency} & Title: \textit{Collaborative Project Title} \\
+                  & Role: Co-PI (PI: Colleague Name) \\
+                  & Year: 2023 -- 2026. My share = \$000,000.
+\end{tabularx}
+
+% ===================== PUBLICATIONS ========================
+\section{Publications}
+
+\noindent\textit{Summary: XX peer-reviewed, XXXX citations (Google Scholar by \today)}
+
+\noindent\small{%
+  $\ddagger$: Student supervised by Dr.~[Your Name] \quad
+  $\dagger$: Student co-supervised by Dr.~[Your Name] \quad
+  *: Corresponding author%
+}
+
+\vspace{4pt}
+\noindent\textbf{Book Chapters}
+\begin{itemize}[label={[B\arabic*]}, leftmargin=2.8em]
+  \item Author 1, Author 2, and \textbf{Your Name},
+        ``Chapter Title,''
+        in \textit{Book Title}, Publisher, Year.
+\end{itemize}
+
+\vspace{4pt}
+\noindent\textbf{Journals}
+\begin{itemize}[label={[J\arabic*]}, leftmargin=2.8em]
+  \item Author 1, Author 2, and \textbf{Your Name}*,
+        ``Journal Paper Title,''
+        \textit{IEEE Transactions on Something}, vol. X, no. Y, pp. Z1--Z2, Year.
+
+  \item Author 1 and \textbf{Your Name}*,
+        ``Another Journal Title,''
+        \textit{ACM Transactions on Something}, Year.
+\end{itemize}
+
+\vspace{4pt}
+\noindent\textbf{Conferences}
+\begin{itemize}[label={[C\arabic*]}, leftmargin=2.8em]
+  \item Student$^\ddagger$, Collaborator, and \textbf{Your Name}*,
+        ``Conference Paper Title,''
+        \textit{Proceedings of IEEE/ACM Conference (CONF)}, Year, \textbf{Best Paper Award}.
+
+  \item Another Student$^\ddagger$ and \textbf{Your Name}*,
+        ``Another Conference Paper Title,''
+        \textit{Proceedings of ACM/SIGDA FPGA}, Year.
+
+  \item Collaborator, Another Collaborator, and \textbf{Your Name},
+        ``Paper at Top ML Venue,''
+        \textit{NeurIPS}, Year.
+\end{itemize}
+
+% ===================== WORKSHOPS AND TUTORIALS =============
+\section{Workshops and Tutorials}
+
+\entry{
+  \textbf{Month Year} \quad ``Tutorial Title''\\
+  \hspace*{1.6em} Tutorial @ Conference Name, City, State
+}{}
+
+\entry{
+  \textbf{Month Year} \quad ``Another Tutorial Title''\\
+  \hspace*{1.6em} Workshop @ Conference Name, City, State
+}{}
+
+% ===================== KEYNOTE AND INVITED TALKS ===========
+\section{Keynote and Invited Talks}
+
+\entry{
+  \textbf{Month Year} \quad ``Talk Title''\\
+  \hspace*{1.6em} Seminar @ Institution Name, City, State
+}{}
+
+\entry{
+  \textbf{Month Year} \quad Keynote ``Talk Title''\\
+  \hspace*{1.6em} Workshop Name @ Conference, City, Country
+}{}
+
+% ===================== TEACHING EXPERIENCE =================
+\section{Teaching Experience}
+
+\entry{
+  \textbf{Fall 2024} \quad University Name, DEPT0000 (\textit{Course Title})\\
+  \hspace*{1.6em} Level class of XX students, Evaluation score: X.X/5.0
+}{}
+
+\entry{
+  \textbf{Spring 2024} \quad University Name, DEPT0000 (\textit{Another Course Title})\\
+  \hspace*{1.6em} Level class of XX students, Evaluation score: X.X/5.0
+}{}
+
+\entry{
+  \textbf{Year} \quad Another University, DEPT0000 (\textit{Course Title})\\
+  \hspace*{1.6em} Guest Lecturer
+}{}
+
+% ===================== STUDENT ADVISING ====================
+\section{Student Advising}
+
+\noindent\textbf{PhD Students (In Progress)}
+\begin{itemize}
+  \item Student Name A, 2022 Fall -- present
+  \item Student Name B, 2023 Spring -- present
+  \item Student Name C, 2024 Fall -- present
+\end{itemize}
+
+\noindent\textbf{MS Students (In Progress)}
+\begin{itemize}
+  \item Student Name D, 2024 Fall -- present
+  \item Student Name E, 2025 Spring -- present
+\end{itemize}
+
+\noindent\textbf{MS Students (Graduated)}
+\begin{itemize}
+  \item Student Name F, 2021 Fall -- 2023 Spring, \textit{Company/Next position}\\
+        Thesis: \textit{Thesis Title}
+  \item Student Name G, 2022 Fall -- 2024 Spring, \textit{Company/Next position}\\
+        Thesis: \textit{Thesis Title}
+\end{itemize}
+
+% ===================== PROFESSIONAL SERVICES ===============
+\section{Professional Services}
+
+\noindent\textbf{Organization Roles}
+\begin{itemize}
+  \item 2024 -- 2026 \quad Role Title, Organization Name
+\end{itemize}
+
+\noindent\textbf{Associate / Guest Editor}
+\begin{itemize}
+  \item 2025 -- present \quad Associate Editor, \textit{Journal Name}
+  \item 2024 \quad Guest Editor, Special Issue on Topic, \textit{Journal Name}
+\end{itemize}
+
+\noindent\textbf{Conference and Workshop Organization}
+\begin{itemize}
+  \item 2026 \quad General Chair of CONFERENCE'26
+  \item 2025 \quad Program Chair of CONFERENCE'25
+  \item 2024 \quad Finance Chair of WORKSHOP'24
+\end{itemize}
+
+\noindent\textbf{Technical Program Committee}
+\begin{itemize}
+  \item 2025 \quad CONF-A'25, CONF-B'25, CONF-C'25
+  \item 2024 \quad CONF-A'24, CONF-B'24
+  \item 2023 \quad CONF-A'23, CONF-B'23
+\end{itemize}
+
+\noindent\textbf{Journal Review}
+\begin{itemize}
+  \item IEEE Transactions on [Field]
+  \item ACM Transactions on [Field]
+  \item IEEE [Journal Name]
+\end{itemize}
+
+\noindent\textbf{Panel Review}
+\begin{itemize}
+  \item 2022 -- 2026 \quad National Science Foundation (NSF)
+  \item 2024 -- 2025 \quad Funding Agency Name
+\end{itemize}
+
+\end{document}
