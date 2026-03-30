@@ -6,8 +6,8 @@ A clean, minimal LaTeX CV template for academic use, structured after a Georgia 
 
 ```
 .
-├── cv_template.tex   # Main CV source file
-├── cv_template.pdf   # Compiled output
+├── main.tex   # Main CV source file
+├── main.pdf   # Compiled output
 └── README.md
 ```
 
@@ -29,9 +29,3 @@ A clean, minimal LaTeX CV template for academic use, structured after a Georgia 
 
 Standard packages only — no custom `.sty` files needed:
 `geometry`, `titlesec`, `tabularx`, `hyperref`, `enumitem`, `parskip`, `microtype`
-
-## Compile
-
-```bash
-pdflatex cv_template.tex
-```
