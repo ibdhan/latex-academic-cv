@@ -3,19 +3,39 @@
 \begin{document}
 
 \input{sections/\lang/header}
-\input{sections/\lang/research}
-
-\iffullcv
-  \input{sections/\lang/appointments}
+\ifshowresearch
+  \input{sections/\lang/research}
 \fi
 
-\input{sections/\lang/education}
-\input{sections/\lang/awards}
-\input{sections/\lang/funding}
-\input{sections/\lang/publications}
-\input{sections/\lang/talks}
-\input{sections/\lang/teaching}
-\input{sections/\lang/students}
-\input{sections/\lang/service}
+\iffullcv
+  \ifshowappointments
+    \input{sections/\lang/appointments}
+  \fi
+\fi
+
+\ifshoweducation
+  \input{sections/\lang/education}
+\fi
+\ifshowawards
+  \input{sections/\lang/awards}
+\fi
+\ifshowfunding
+  \input{sections/\lang/funding}
+\fi
+\ifshowpublications
+  \input{sections/\lang/publications}
+\fi
+\ifshowtalks
+  \input{sections/\lang/talks}
+\fi
+\ifshowteaching
+  \input{sections/\lang/teaching}
+\fi
+\ifshowstudents
+  \input{sections/\lang/students}
+\fi
+\ifshowservice
+  \input{sections/\lang/service}
+\fi
 
 \end{document}
