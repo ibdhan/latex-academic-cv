@@ -13,6 +13,9 @@ A clean, modular, and multi-language LaTeX CV template for academic use, inspire
 
 ```text
 .
+├── output/              # Generated build files (PDF, log, aux, ...)
+├── scripts/
+│   └── build_all.ps1    # PowerShell script to compile all versions
 ├── sections/            # Modular content files
 │   ├── en/              # English sections
 │   └── id/              # Indonesian sections
@@ -22,7 +25,6 @@ A clean, modular, and multi-language LaTeX CV template for academic use, inspire
 ├── cv_en_short.tex      # Entry point: English, Short CV
 ├── cv_id_full.tex       # Entry point: Indonesian, Full CV
 ├── cv_id_short.tex      # Entry point: Indonesian, Short CV
-├── build_all.ps1        # PowerShell script to compile all versions
 └── README.md
 ```
 
@@ -48,7 +50,7 @@ You need a LaTeX distribution installed (e.g., TeX Live, MiKTeX, or MacTeX) with
 You can compile individual files using your preferred LaTeX editor, or use the provided script to build everything:
 
 ```powershell
-./build_all.ps1
+./scripts/build_all.ps1
 ```
 
 ## Customization

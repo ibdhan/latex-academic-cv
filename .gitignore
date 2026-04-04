@@ -41,5 +41,6 @@ Thumbs.db
 *.bak
 
 ## Output PDF (optional — keep if you want compiled output in repo)
-# output/
-# main.pdf
+output/*
+!output/*.pdf
+!output/.gitkeep
