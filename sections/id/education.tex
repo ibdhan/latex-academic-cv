@@ -1,15 +1,14 @@
 % !TeX root = ../../cv_id_full.tex
 % ===================== PENDIDIKAN =========================
-\section{Pendidikan}
+\section{Education}
 
-\entry{
-  \textbf{Ph.D.} \quad Bidang Studi \hfill \textit{Universitas, Negara}
-}{2015 -- 2019}
+\newcommand{\educationentry}[4]{%
+  #1 & #2 & \textit{#3} & #4 \\
+}
 
-\entry{
-  \textbf{M.S.} \quad Bidang Studi \hfill \textit{Universitas, Negara}
-}{2013 -- 2015}
-
-\entry{
-  \textbf{B.E.} \quad Bidang Studi \hfill \textit{Universitas, Negara}
-}{2009 -- 2013}
+\noindent
+\begin{tabularx}{\linewidth}{@{}>{\RaggedRight\arraybackslash}l >{\RaggedRight\arraybackslash}l >{\RaggedRight\arraybackslash}X >{\RaggedLeft\arraybackslash}l@{}}
+  \educationentry{\textbf{M.Sc.}}{Control and Intelligent Systems}{Institut Teknologi Bandung, Indonesia}{2020 -- 2023}
+  \educationentry{\textbf{B.ASc.}}{Electronics Engineering}{Politeknik Elektronika Negeri Surabaya, Indonesia}{2017 -- 2018}
+  \educationentry{\textbf{A.Md.}}{Electronics Engineering}{Politeknik Elektronika Negeri Surabaya, Indonesia}{2013 -- 2016}
+\end{tabularx}\vspace{2pt}
