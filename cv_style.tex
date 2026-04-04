@@ -1,3 +1,5 @@
+% !TeX root = ./cv_en_full.tex
+% Shared preamble; build one of the root CV files, not this file directly.
 \documentclass[10pt, letterpaper]{article}
 
 % ---------- Packages ----------
@@ -27,12 +29,14 @@
   linkcolor  = blue
 }
 
+\definecolor{sectionblue}{RGB}{58,96,177}
+
 % ---------- Section title formatting ----------
 % Bold, all-caps, with a rule underneath
 \titleformat{\section}
-  {\large\bfseries\uppercase}
-  {}{0em}{}
-  [\vspace{-4pt}\rule{\linewidth}{0.8pt}\vspace{-4pt}]
+  {\large\bfseries\color{sectionblue}}
+  {}{0em}{\MakeUppercase}
+  [\vspace{-14pt}\rule{\linewidth}{0.8pt}\vspace{-4pt}]
 
 \titlespacing*{\section}{0pt}{10pt}{6pt}
 
