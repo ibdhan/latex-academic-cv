@@ -21,6 +21,7 @@
 \usepackage{ragged2e}
 \usepackage{multirow}
 \usepackage{etoolbox}
+\usepackage{changepage}
 
 % ---------- Hyperlink style ----------
 \hypersetup{
@@ -39,6 +40,28 @@
   [\vspace{-14pt}\rule{\linewidth}{0.8pt}\vspace{-4pt}]
 
 \titlespacing*{\section}{0pt}{10pt}{6pt}
+
+% ---------- Section body padding ----------
+% Adds horizontal padding between section titles and their body content.
+\newlength{\sectionbodypadding}
+\setlength{\sectionbodypadding}{1.0em}
+\newif\ifcvsectionbodyopen
+\cvsectionbodyopenfalse
+\let\cvorigsection\section
+\renewcommand{\section}[1]{%
+  \ifcvsectionbodyopen
+    \end{adjustwidth}%
+    \cvsectionbodyopenfalse
+  \fi
+  \cvorigsection{#1}%
+  \begin{adjustwidth}{\sectionbodypadding}{\sectionbodypadding}%
+  \cvsectionbodyopentrue
+}
+\AtEndDocument{%
+  \ifcvsectionbodyopen
+    \end{adjustwidth}%
+  \fi
+}
 
 % ---------- List settings ----------
 \setlist[itemize]{
