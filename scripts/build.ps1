@@ -17,6 +17,10 @@ try {
             -jobname="cv_${lang}_short" "\def\short{}\input{cv_$lang}"
         if ($LASTEXITCODE -ne 0) { throw "Build failed: cv_$lang (short)" }
     }
+
+    # Reached only if every variant built successfully (a failure throws above),
+    # so .log files stay available for debugging when something goes wrong.
+    Remove-Item -Path (Join-Path $outputDir "*") -Include *.aux, *.log, *.out -Force
 }
 finally {
     Pop-Location
