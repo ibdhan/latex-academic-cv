@@ -1,68 +1,53 @@
-# Academic CV — LaTeX Template
+# Academic CV (LaTeX)
 
-A clean, modular, and multi-language LaTeX CV template for academic use, inspired by the Georgia Tech faculty CV style. This repository supports both English and Indonesian versions, with "Full" and "Short" variants for each.
+CV akademik dalam bahasa Inggris dan Indonesia, masing-masing tersedia dalam versi **full** dan **short**.
+Gaya tampilan terinspirasi dari format CV fakultas Georgia Tech.
 
-## Features
+PDF hasil build ada di [`output/`](output/):
 
-- **Multi-language Support**: English (`en`) and Indonesian (`id`) sections.
-- **Configurable Length**: Toggle between Full and Short versions using LaTeX flags.
-- **Modular Design**: Content is split into logical sections (Education, Publications, etc.) for easy maintenance.
-- **Automation**: Includes a PowerShell script to build all four CV variants at once.
+| | Full | Short (tanpa appointments) |
+|---|---|---|
+| English | `cv_en.pdf` | `cv_en_short.pdf` |
+| Indonesia | `cv_id.pdf` | `cv_id_short.pdf` |
 
-## Project Structure
+## Struktur
 
 ```text
 .
-├── output/              # Generated build files (PDF, log, aux, ...)
-├── scripts/
-│   └── build_all.ps1    # PowerShell script to compile all versions
-├── sections/            # Modular content files
-│   ├── en/              # English sections
-│   └── id/              # Indonesian sections
-├── cv_style.tex         # Layout, packages, and custom commands
-├── main.tex             # Main driver that loads sections based on flags
-├── cv_en_full.tex       # Entry point: English, Full CV
-├── cv_en_short.tex      # Entry point: English, Short CV
-├── cv_id_full.tex       # Entry point: Indonesian, Full CV
-├── cv_id_short.tex      # Entry point: Indonesian, Short CV
-└── README.md
+├── cv_en.tex / cv_id.tex   # entry point per bahasa: daftar section yang ditampilkan
+├── style.tex               # layout, package, dan format section (dipakai bersama)
+├── sections/
+│   ├── en/                 # header, research, appointments, education, funding, publications
+│   └── id/                 # (isi sama, bahasa Indonesia)
+├── scripts/build.ps1       # build semua varian ke output/
+└── output/                 # PDF hasil build
 ```
 
-## How It Works
+## Cara kerja
 
-The template uses a "Wrapper" system. Each entry point (e.g., `cv_en_full.tex`) defines two variables before inputting `main.tex`:
+Setiap `cv_<lang>.tex` mengatur `\lang` lalu memuat `style.tex` dan section dari `sections/<lang>/`.
+Untuk menyembunyikan atau menambah section, cukup ubah baris `\input{...}` di file tersebut.
 
-```latex
-\def\lang{en}       % Set language: 'en' or 'id'
-\newif\iffullcv     % Define the 'fullcv' flag
-\fullcvtrue         % Set to \fullcvtrue or \fullcvfalse
-\input{main}        % Load the main driver
-```
+Versi short dibuat dengan mendefinisikan `\short` dari command line; satu-satunya bedanya adalah
+section *appointments* tidak ditampilkan.
 
-`main.tex` then uses these flags to `\input` the correct files from the `sections/` directory.
+## Build
 
-## Getting Started
-
-### Prerequisites
-You need a LaTeX distribution installed (e.g., TeX Live, MiKTeX, or MacTeX) with `pdflatex` available in your PATH.
-
-### Building
-You can compile individual files using your preferred LaTeX editor, or use the provided script to build everything:
+Butuh distribusi LaTeX (TeX Live / MiKTeX) dengan `pdflatex` di PATH.
 
 ```powershell
-./scripts/build_all.ps1
+./scripts/build.ps1
 ```
 
-## Customization
+Atau satu per satu:
 
-### Styling
-Modify `cv_style.tex` to change margins, fonts, colors, or section header formatting.
+```powershell
+pdflatex cv_en.tex                                   # full
+pdflatex -jobname=cv_en_short "\def\short{}\input{cv_en}"   # short
+```
 
-### Custom Commands
-The template provides helper commands to keep the content files clean:
-- `\entry{Left Text}{Right Text}`: Creates a two-column row (e.g., for education or jobs).
-- `\award{Year}{Award Name}{Venue/Notes}`: A specialized entry for honors and awards.
+## Menambah section baru
 
-## Dependencies
-Standard packages only — no custom `.sty` files needed:
-`geometry`, `titlesec`, `tabularx`, `hyperref`, `enumitem`, `parskip`, `microtype`, `etoolbox`.
+Section lain (awards, talks, teaching, students, service) sudah tidak ada di versi ini, tetapi
+masih tersimpan di Git: lihat tag `v1-legacy`, mis. `git show v1-legacy:sections/en/awards.tex`.
+Salin ke `sections/en/` dan `sections/id/`, lalu tambahkan `\input{...}` di `cv_en.tex` / `cv_id.tex`.

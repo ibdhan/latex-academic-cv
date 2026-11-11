@@ -1,0 +1,20 @@
+% English CV. Compiles the full version by default.
+% Short version (without appointments): pdflatex "\def\short{}\input{cv_en}"  (see scripts/build.ps1)
+\def\lang{en}
+\input{style}
+
+\begin{document}
+
+\input{sections/\lang/header}
+\input{sections/\lang/research}
+
+% Appointments only appear in the full version (no short flag).
+\ifdefined\short\else
+  \input{sections/\lang/appointments}
+\fi
+
+\input{sections/\lang/education}
+\input{sections/\lang/funding}
+\input{sections/\lang/publications}
+
+\end{document}

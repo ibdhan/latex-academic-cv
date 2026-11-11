@@ -1,0 +1,20 @@
+% CV Bahasa Indonesia. Dikompilasi sebagai versi lengkap secara default.
+% Versi singkat (tanpa riwayat pekerjaan): pdflatex "\def\short{}\input{cv_id}"  (lihat scripts/build.ps1)
+\def\lang{id}
+\input{style}
+
+\begin{document}
+
+\input{sections/\lang/header}
+\input{sections/\lang/research}
+
+% Riwayat/appointments hanya tampil di versi lengkap (tidak ada flag \short).
+\ifdefined\short\else
+  \input{sections/\lang/appointments}
+\fi
+
+\input{sections/\lang/education}
+\input{sections/\lang/funding}
+\input{sections/\lang/publications}
+
+\end{document}

@@ -1,46 +1,17 @@
-## Core LaTeX build artifacts
+# LaTeX build artifacts
 *.aux
 *.log
 *.out
-*.toc
-*.lof
-*.lot
 *.fls
 *.fdb_latexmk
-
-## Bibliography
-*.bbl
-*.blg
-*.bcf
-*.run.xml
-
-## Index
-*.idx
-*.ilg
-*.ind
-
-## Glossary / Nomenclature
-*.glg
-*.glo
-*.gls
-*.acn
-*.acr
-*.alg
-
-## latexmk
 *.synctex.gz
-*.synctex(busy)
-*.pdfsync
 
-## Temporary/editor files
+# Compiled PDFs are kept in output/ (so they can be opened on GitHub)
+output/*
+!output/*.pdf
+
+# Editor / OS
 *.swp
-*.swo
 *~
 .DS_Store
 Thumbs.db
-*.bak
-
-## Output PDF (optional — keep if you want compiled output in repo)
-output/*
-!output/*.pdf
-!output/.gitkeep

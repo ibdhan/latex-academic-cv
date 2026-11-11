@@ -1,0 +1,53 @@
+% Shared preamble. Do not compile this file directly; build cv_en.tex or cv_id.tex.
+\documentclass[10pt, letterpaper]{article}
+
+% ---------- Packages ----------
+\usepackage[
+  top=0.75in, bottom=0.75in,
+  left=0.85in, right=0.85in
+]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{mathptmx}        % Times New Roman (text + math)
+\usepackage{microtype}
+\usepackage{parskip}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage{ragged2e}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{changepage}
+\usepackage{hyperref}
+
+% ---------- Hyperlinks ----------
+\hypersetup{colorlinks=true, urlcolor=blue, linkcolor=blue}
+
+% ---------- Section titles ----------
+% Bold, all-caps, blue, with a rule underneath.
+\definecolor{sectionblue}{RGB}{58,96,177}
+\titleformat{\section}
+  {\large\bfseries\color{sectionblue}}
+  {}{0em}{\MakeUppercase}
+  [\vspace{-14pt}\rule{\linewidth}{0.8pt}\vspace{-4pt}]
+\titlespacing*{\section}{0pt}{10pt}{6pt}
+
+% ---------- Section body padding ----------
+% Indents each section's body horizontally while the title stays full width.
+% Wraps everything after \section in adjustwidth, closed by the next \section
+% (or by the end of the document).
+\newlength{\sectionbodypadding}
+\setlength{\sectionbodypadding}{1.0em}
+\newif\ifcvsectionbodyopen
+\let\cvorigsection\section
+\renewcommand{\section}[1]{%
+  \ifcvsectionbodyopen\end{adjustwidth}\fi
+  \cvorigsection{#1}%
+  \begin{adjustwidth}{\sectionbodypadding}{\sectionbodypadding}%
+  \cvsectionbodyopentrue
+}
+\AtEndDocument{\ifcvsectionbodyopen\end{adjustwidth}\fi}
+
+% ---------- Lists and paragraphs ----------
+\setlist[itemize]{leftmargin=1.5em, topsep=2pt, itemsep=1pt, parsep=0pt}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
